@@ -18,9 +18,9 @@ function main() {
     userInput = userInput.toLowerCase();
 
     const pcInput = Math.floor(Math.random() * 3);
-    console.log(pcInput);
 
     game(userInput, pcInput);
+    console.log(`Player: ${user_score} | Computer : ${computer_score}`);
 
     return main();
 }
@@ -34,28 +34,37 @@ function game(playerInput, computerInput) {
     console.log(`Computer throw "${computerInput}"\n`);
 
     if (playerInput === computerInput) {
-        return console.log("It's a tie!");
+        console.log("It's a tie!");
     } 
     else if (playerInput === "rock" && computerInput === "scissors") {
-        return console.log("Player wins!");
+        user_score++;
+        console.log("Player wins!");
     } 
     else if (playerInput === "rock" && computerInput === "paper") {
-        return console.log("Player loses!");
+        computer_score++;
+        console.log("Player loses!");
     } 
     else if (playerInput === "paper" && computerInput === "rock") {
-        return console.log("Player wins!");
+        user_score++;
+        console.log("Player wins!");
     } 
     else if (playerInput === "paper" && computerInput === "scissors") {
-        return console.log("Player loses!");
+        computer_score++;
+        console.log("Player loses!");
     } 
     else if (playerInput === "scissors" && computerInput === "paper") {
-        return console.log("Player wins!");
+        user_score++;
+        console.log("Player wins!");
     } 
     else if (playerInput === "scissors" && computerInput === "rock") {
-        return console.log("Player loses!");
+        computer_score++;
+        console.log("Player loses!");
+    } else {
+        console.log("The typed input it's not 'rock', 'paper' or 'scissors'.");
     }
-
-    return console.log("The typed input it's not 'rock', 'paper' or 'scissors'.");
 }
+
+let user_score = 0;
+let computer_score = 0;
 
 main();
