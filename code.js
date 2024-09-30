@@ -12,15 +12,43 @@
 
 function main() {
     const userInput = prompt("Choose rock, paper or scissors: ").toLowerCase();
-    const pcInput = Math.floor(Math.random * 3);
+    const pcInput = Math.floor(Math.random() * 3);
+    console.log(pcInput);
+
+    game(userInput, pcInput);
 }
 
 function game(playerInput, computerInput) {
-    const possibilities = ["rock", "paper", "scissors"]; 
+    const possibilities = ["rock", "paper", "scissors"];
+    let index = computerInput;
+    computerInput = possibilities.at(index);
+
+    console.log(`Player throw "${playerInput}"\n`);
+    console.log(`Computer throw "${computerInput}"\n`);
+
     if (playerInput === computerInput) {
-        console.log("It's a tie!");
+        return console.log("It's a tie!");
+    } 
+    else if (playerInput === "rock" && computerInput === "scissors") {
+        return console.log("Player wins!");
+    } 
+    else if (playerInput === "rock" && computerInput === "paper") {
+        return console.log("Player loses!");
+    } 
+    else if (playerInput === "paper" && computerInput === "rock") {
+        return console.log("Player wins!");
+    } 
+    else if (playerInput === "paper" && computerInput === "scissors") {
+        return console.log("Player loses!");
+    } 
+    else if (playerInput === "scissors" && computerInput === "paper") {
+        return console.log("Player wins!");
+    } 
+    else if (playerInput === "scissors" && computerInput === "rock") {
+        return console.log("Player loses!");
     }
-    else if (playerInput === "Rock" && computerInput === "Scissors") {
-        console.log("Player wins!");
-    }
+
+    return console.log("The typed input it's not 'rock', 'paper' or 'scissors'.");
 }
+
+main();
