@@ -11,11 +11,18 @@
 // And so on...
 
 function main() {
-    const userInput = prompt("Choose rock, paper or scissors: ").toLowerCase();
+    let userInput = prompt("Choose rock, paper or scissors: ");
+    if (userInput === null || userInput === "") {
+        return console.log("Player quit.")
+    }
+    userInput = userInput.toLowerCase();
+
     const pcInput = Math.floor(Math.random() * 3);
     console.log(pcInput);
 
     game(userInput, pcInput);
+
+    return main();
 }
 
 function game(playerInput, computerInput) {
