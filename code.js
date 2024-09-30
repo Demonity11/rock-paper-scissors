@@ -8,4 +8,19 @@
 // IF the player pick "Scissors" and the computer pick "Scissors" then there's a tie
 // IF the player pick "Scissors" and the computer pick "Paper" then the player wins
 // IF the player pick "Scissors" and the computer pick "Rock" then the player loses
-// And go on...
+// And so on...
+
+function main() {
+    const userInput = prompt("Choose rock, paper or scissors: ").toLowerCase();
+    const pcInput = Math.floor(Math.random * 3);
+}
+
+function game(playerInput, computerInput) {
+    const possibilities = ["rock", "paper", "scissors"]; 
+    if (playerInput === computerInput) {
+        console.log("It's a tie!");
+    }
+    else if (playerInput === "Rock" && computerInput === "Scissors") {
+        console.log("Player wins!");
+    }
+}
