@@ -30,36 +30,24 @@ function game(playerInput, computerInput) {
     let index = computerInput;
     computerInput = possibilities.at(index);
 
-    console.log(`Player throw "${playerInput}"\n`);
-    console.log(`Computer throw "${computerInput}"\n`);
-
     if (playerInput === computerInput) {
         console.log("It's a tie!");
     } 
-    else if (playerInput === "rock" && computerInput === "scissors") {
+    else if ((playerInput === "rock" && computerInput === "scissors") || 
+             (playerInput === "paper" && computerInput === "rock") ||
+             (playerInput === "scissors" && computerInput === "paper")) {
         user_score++;
-        console.log("Player wins!");
+        console.log(`You win! ${playerInput} beats ${computerInput}!`);
+
     } 
-    else if (playerInput === "rock" && computerInput === "paper") {
+    else if ((playerInput === "rock" && computerInput === "paper") ||
+            (playerInput === "paper" && computerInput === "scissors") ||
+            (playerInput === "scissors" && computerInput === "rock")) {
         computer_score++;
-        console.log("Player loses!");
+        console.log(`You lose! ${computerInput} beats ${playerInput}!`);
+
     } 
-    else if (playerInput === "paper" && computerInput === "rock") {
-        user_score++;
-        console.log("Player wins!");
-    } 
-    else if (playerInput === "paper" && computerInput === "scissors") {
-        computer_score++;
-        console.log("Player loses!");
-    } 
-    else if (playerInput === "scissors" && computerInput === "paper") {
-        user_score++;
-        console.log("Player wins!");
-    } 
-    else if (playerInput === "scissors" && computerInput === "rock") {
-        computer_score++;
-        console.log("Player loses!");
-    } else {
+    else {
         console.log("The typed input it's not 'rock', 'paper' or 'scissors'.");
     }
 }
