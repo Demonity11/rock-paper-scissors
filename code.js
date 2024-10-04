@@ -38,6 +38,13 @@ function game(playerInput, computerInput) {
     }
 
     score.textContent = `Player: ${user_score} | Computer : ${computer_score}`;
+
+    if (user_score === 5 || computer_score === 5) {
+        log.textContent = `${(user_score === 5) ? "The player" : "The computer"} won the game!`;
+
+        user_score = 0;
+        computer_score = 0;
+    }
 }
 
 let user_score = 0;
